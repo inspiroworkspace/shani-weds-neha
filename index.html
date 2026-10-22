@@ -59,6 +59,7 @@ img{display:block;max-width:100%}
 #vwrap.out{opacity:0;transition:opacity 1.4s ease;pointer-events:none}
 #vid{width:100%;height:100%;object-fit:contain;display:block;background:var(--bg);pointer-events:none}
 /* phones & tablets: fill the whole screen. laptops: show the complete video */
+@media (min-width:1025px){#cover,#vwrap,#vid{background:#14060a}}
 @media (max-width:1024px){#cover img,#vid{object-fit:cover}}
 
 #audioBtn{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom));width:60px;height:60px;border-radius:50%;background:#5a0f1b;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2147483000;box-shadow:0 4px 10px rgba(0,0,0,.18);border:0;visibility:hidden;opacity:0;transition:opacity .4s ease;-webkit-tap-highlight-color:transparent}
@@ -181,6 +182,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 .mapwrap{position:relative;width:min(88vw,340px);margin:clamp(54px,9vw,72px) auto 0}
 .mapwrap .oT,.mapwrap .oB{position:absolute;left:50%;width:min(76%,260px);transform:translateX(-50%);height:auto;pointer-events:none}
 .mapwrap .oT{top:-24px}.mapwrap .oB{bottom:-24px;transform:translateX(-50%) scaleY(-1)}
+.maplink{display:inline-block;margin-top:46px;font-family:var(--script);font-weight:300;font-size:clamp(22px,4.6vw,26px);color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(166,125,43,.45);padding-bottom:2px}
 .mapframe{border:2.5px solid #d7b068;border-radius:20px;overflow:hidden;background:#f3e8d0;aspect-ratio:340/380;box-shadow:0 8px 24px rgba(166,125,43,.15)}
 .mapframe iframe{width:100%;height:100%;border:0;display:block;filter:sepia(.18) saturate(.9)}
 
@@ -198,8 +200,9 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 #celebrate{padding:clamp(60px,9vw,90px) 20px 0;text-align:center}
 #celebrate p{max-width:23em;margin:14px auto 0;font-size:clamp(19px,4.2vw,25px);line-height:1.25;color:var(--brown)}
 #famBtn{margin:clamp(30px,5vw,44px) auto 0;display:inline-flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;cursor:pointer;font:inherit;-webkit-tap-highlight-color:transparent}
-#famBtn .lab{font-family:var(--script);font-weight:300;font-size:clamp(24px,5.4vw,32px);color:var(--gold);line-height:1.15;border:1.5px solid rgba(205,169,90,.9);border-radius:60px;padding:14px 30px;background:rgba(255,250,238,.6);box-shadow:0 6px 18px rgba(166,125,43,.14);transition:transform .35s ease,box-shadow .35s ease,background .35s ease}
-#famBtn:hover .lab,#famBtn:focus-visible .lab{transform:translateY(-2px);background:rgba(255,250,238,.95);box-shadow:0 10px 22px rgba(166,125,43,.22)}
+#famBtn .seal{width:clamp(104px,28vw,130px);height:auto;filter:drop-shadow(0 8px 10px rgba(90,15,27,.25));transition:transform .4s ease;animation:floaty 5s ease-in-out infinite}
+#famBtn:hover .seal,#famBtn:focus-visible .seal{transform:scale(1.05) rotate(-2deg)}
+#famBtn .lab{font-family:var(--script);font-weight:300;font-size:clamp(24px,5.4vw,32px);color:var(--gold);line-height:1.15;max-width:15em}
 #famBtn svg{width:26px;height:14px;animation:bob 2.2s ease-in-out infinite}
 #famBtn[aria-expanded="true"] svg{transform:rotate(180deg);animation:none;opacity:.7}
 
@@ -252,7 +255,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 </div>
 <!-- Intro video (plays fully, cannot be skipped) -->
 <div id="vwrap" aria-hidden="true">
-  <video id="vid" src="assets/Intro%20Final.mp4" muted playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback"></video>
+  <video id="vid" src="assets/Intro%20Final.mp4" playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback"></video>
 </div>
 <button id="audioBtn" type="button" aria-label="Pause or play music">
   <svg id="icPause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
@@ -282,7 +285,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
   <!-- INVITATION -->
   <section id="invite">
     <div class="paper rv">
-      <img class="ganesh" src="assets/om%20ganehya%20namah.webp" alt="Om Ganeshaya Namah" loading="lazy">
+      <img class="ganesh" src="assets/om%20ganehya%20namah.webp" alt="Om Ganeshaya Namah" loading="lazy" onerror="this.style.display='none'">
       <div class="script blessing">Two Souls<br>One destiny<br>A lifetime of love and blessings</div>
       <div class="dear"><b>Dear Friends and Family</b><p>Join us for an evening of love, laughter, blessings, and unforgettable memories as we begin our forever.</p></div>
     </div>
@@ -342,11 +345,12 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
     <div class="mapwrap rv">
       <img class="oT" src="assets/4956350a9355d5.png" alt="" aria-hidden="true">
       <div class="mapframe">
-        <iframe title="Map: Shiv Mandir, Bhauwapar, Gorakhpur" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
-          src="https://www.google.com/maps?q=Shiv+Mandir,+Bhauwapar,+Gorakhpur,+Uttar+Pradesh&amp;hl=en&amp;z=16&amp;output=embed"></iframe>
+        <iframe title="Map: Bhauwapar, Gorakhpur, Uttar Pradesh" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://www.google.com/maps?q=Bhauwapar,+Gorakhpur,+Uttar+Pradesh&amp;hl=en&amp;z=14&amp;output=embed"></iframe>
       </div>
       <img class="oB" src="assets/4956350a9355d5.png" alt="" aria-hidden="true">
     </div>
+    <a class="maplink rv" href="https://www.google.com/maps/search/?api=1&amp;query=Bhauwapar%2C%20Gorakhpur%2C%20Uttar%20Pradesh" target="_blank" rel="noopener">Open in Google Maps</a>
   </section>
 
   <!-- DRESS CODE + GIFT -->
@@ -367,8 +371,9 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
     <h2 class="script h2 rv">Celebrate With Us</h2>
     <p class="rv">Come with love, enjoy the celebration, eat your heart out, laugh a little louder, make beautiful memories with us, and go home with a happy heart.</p>
     <button id="famBtn" class="rv" type="button" aria-expanded="false" aria-controls="gallery">
+      <img class="seal" src="assets/guest.webp" alt="Guest seal" width="130" height="119">
+      <svg viewBox="0 0 30 16" fill="none" stroke="#a67d2b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3,13 15,3 27,13"/></svg>
       <span class="lab">Click to See Who’s Eating for Free</span>
-      <svg viewBox="0 0 30 16" fill="none" stroke="#a67d2b" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="3,3 15,13 27,3"/></svg>
     </button>
     <div id="gallery"><div>
       <div class="gal-in">
@@ -413,7 +418,7 @@ function prime(){ /* silently unlock audio on first touch (Safari / Samsung) */
 }
 function setIcons(){var on=!bgm.paused;icP.style.display=on?'block':'none';icPl.style.display=on?'none':'block'}
 function startMusic(){
-  bgm.loop=true;bgm.volume=1;
+  bgm.loop=true;bgm.volume=.22; /* music sits low under the video's own sound */
   try{var p=bgm.play();if(p&&p.then)p.then(setIcons).catch(function(){setIcons()})}catch(e){}
   setIcons();
 }
@@ -422,6 +427,7 @@ function release(){ /* reveal the website */
   vwrap.classList.remove('in');vwrap.classList.add('out');
   body.classList.remove('locked');body.classList.add('go');
   abtn.classList.add('show');
+  var t0=bgm.volume,k=0,fade=setInterval(function(){k++;bgm.volume=Math.min(1,t0+(1-t0)*k/20);if(k>=20)clearInterval(fade)},100);
   setTimeout(function(){vwrap.style.display='none'},1500);
   setTimeout(revealNow,300);
 }
@@ -431,9 +437,11 @@ function begin(){
   setTimeout(function(){cover.style.display='none'},1300);
   vwrap.classList.add('in');
   startMusic();
-  vid.muted=true;vid.setAttribute('playsinline','');vid.setAttribute('webkit-playsinline','');
+  vid.muted=false;vid.volume=1;vid.setAttribute('playsinline','');vid.setAttribute('webkit-playsinline','');
   var p=vid.play();
-  if(p&&p.catch)p.catch(function(){setTimeout(release,600)});
+  if(p&&p.catch)p.catch(function(){ /* browser refused sound: play it silently instead */
+    vid.muted=true;bgm.volume=1;var q=vid.play();if(q&&q.catch)q.catch(function(){setTimeout(release,600)});
+  });
   /* safety net: if the video never starts, never trap the guest */
   guard=setTimeout(function(){if(vid.currentTime<0.2)release()},9000);
 }

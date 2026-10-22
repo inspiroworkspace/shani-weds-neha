@@ -1,31 +1,13 @@
-# Shani & Neha — Wedding Invitation
+# Shani & Neha Wedding Invitation
 
-Static website (no build step). Everything is in `index.html`; media lives in `assets/`.
+This version preserves the layout, responsive positioning, fonts, floral illustrations, animations and swan video from the supplied original public page.
 
-## Files YOU must upload into `assets/` (exact names, case-sensitive)
+Opening: `assets/first seal.webp` → `assets/Intro Final.mp4` (10 seconds) → invitation. Background music: `assets/bg-music.mp3`.
 
-| File | Used for |
-|---|---|
-| `first seal.webp` | Opening cover |
-| `Intro Final.mp4` | Intro video (plays fully, can't be skipped) |
-| `bg-music.mp3` | Background music (loops) |
-| `om ganehya namah.webp` | Ganesh artwork in the invitation card |
-| `neha shani.webp` | Closing couple photo |
-| `guest.webp` | Wax seal button that opens the family gallery |
-| `logo.png` | Browser tab icon + WhatsApp preview image |
-| `Aryan.webp`, `Musu.webp`, `Sanjana.webp`, `Papa.webp`, `Ladki Wale ki Taraf se.webp`, `Ladki Wale Phir se.webp`, `Mother.webp` | Family gallery, in this order |
+The reference scripts, styles, images and fonts are bundled in `assets/reference/`. The swan video is converted to H.264 MP4 for browser compatibility. No build command is required.
 
-Tip: GitHub's web uploader accepts files up to 25 MB; larger files (e.g. the video) need GitHub Desktop or `git push`.
+Wedding date: 9 May 2027, India time. Location and map: Bhauwapar, Gorakhpur, Uttar Pradesh. The venue illustration is retained from the reference; a separate replacement location sample was not attached to this request.
 
-## Deploy
-1. Push this folder to GitHub (repo root must contain `index.html` and `assets/`).
-2. Vercel → Add New Project → import the repo → Framework "Other" → Deploy. Every later push redeploys automatically.
-3. After you know your final domain, open `index.html` and change the `og:image` URL (search `og:image`) so WhatsApp shows your logo.
+The family seal opens seven uploaded family photos. All personal media uses the existing filenames in `assets/`.
 
-## Edit later (all in `index.html`)
-- **Text**: search for the sentence and edit it.
-- **Wedding date/time**: search `2027-05-09T17:00:00+05:30` (countdown), and the `09.05.2027` / `MAY` / `09` / `2027` texts.
-- **Schedule**: the five `sch-row` lines.
-- **Map**: the `<iframe src="https://www.google.com/maps?q=...">` — change the `q=` place name (currently `Bhauwapar, Gorakhpur, Uttar Pradesh`) and the "Open in Google Maps" link.
-- **Gallery**: the `data=[ ... ]` list in the script (file name without `.webp`; `fit:'fill'` crops to the frame, `fit:'fit'` shows the whole photo; `pos` sets focus).
-- **Photos / music / video**: replace the file in `assets/` keeping the same name.
+Deploy on Vercel by importing this GitHub repository, choosing framework Other, and leaving the build command empty. Later pushes deploy automatically once Git integration is configured.

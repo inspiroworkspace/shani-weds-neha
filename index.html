@@ -87,11 +87,10 @@ img{display:block;max-width:100%}
 /* ───────── Hero ───────── */
 #hero{position:relative;min-height:min(100vh,740px);min-height:min(100svh,740px);display:flex;justify-content:center;text-align:center;overflow:visible;z-index:3}
 #hero .swan-bg{position:absolute;left:50%;top:0;transform:translateX(-50%);width:min(100%,560px);height:100%;object-fit:cover;pointer-events:none}
-#hero .glow{position:absolute;left:50%;top:0;transform:translateX(-50%);width:min(450px,92vw);height:78%;background:radial-gradient(ellipse at 50% 42%,rgba(255,251,242,.95) 0%,rgba(255,251,242,.55) 55%,rgba(249,240,224,0) 78%);border-radius:50% 50% 0 0/38% 38% 0 0;pointer-events:none}
 #hero .in{position:relative;z-index:2;padding-top:clamp(54px,10vh,110px);display:flex;flex-direction:column;align-items:center;width:100%}
 #hero .wed{font-size:clamp(34px,5vw,44px)}
 #hero .date{font-family:var(--body);font-weight:600;font-size:clamp(22px,3.2vw,29px);color:var(--gold);margin-top:6px;letter-spacing:.02em}
-#hero .names{margin-top:clamp(26px,5vh,54px);font-family:var(--names);font-weight:800;color:var(--gold);line-height:.86;font-size:clamp(56px,10.5vw,70px);display:flex;flex-direction:column;align-items:center}
+#hero .names{margin-top:clamp(36px,6vh,66px);font-family:var(--names);font-weight:800;color:var(--gold);line-height:.86;font-size:clamp(64px,11.8vw,80px);display:flex;flex-direction:column;align-items:center}
 #hero .names .amp{font-family:var(--script);font-weight:300;font-size:.42em;line-height:1.05;margin:2px 0 4px}
 #hero .scroll{margin-top:clamp(28px,6vh,56px);font-size:clamp(24px,3.6vw,28px)}
 #hero .chev{display:block;margin:6px auto 0;width:30px;height:16px;animation:bob 2.2s ease-in-out infinite}
@@ -110,7 +109,8 @@ body.go .hl:nth-child(2){animation-delay:.45s}
 body.go .hl:nth-child(3){animation-delay:.75s}
 body.go .hl:nth-child(4){animation-delay:1.15s}
 @keyframes up{to{opacity:1;transform:none}}
-body.go .hero-fl{animation:fadeIn 1.8s .6s both}
+body.go .hero-fl{animation:fadeIn 1.8s .6s both,floralSway 7s ease-in-out 2.4s infinite}
+body.go .hero-fl.r{animation-delay:.6s,3.4s}
 .hero-fl{opacity:0}
 @keyframes fadeIn{to{opacity:1}}
 
@@ -278,12 +278,25 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 
 /* ───────── Closing ───────── */
 #closing{padding:clamp(70px,10vw,100px) 0 0;text-align:center}
-#closing .names2{font-family:var(--body);font-weight:100;font-size:clamp(25px,5vw,32px);color:var(--gold);margin-top:10px}
-.photo{position:relative;width:min(100%,460px);margin:clamp(26px,4vw,40px) auto 0;line-height:0}
+#closing .names2{font-family:var(--body);font-weight:100;font-size:clamp(29px,5.6vw,37px);color:var(--gold);margin-top:22px}
+.photo{position:relative;width:min(100%,460px);margin:clamp(38px,5vw,54px) auto 0;line-height:0}
 .photo>img.pic{width:100%;height:auto;border-radius:28px 28px 0 0}
 .photo>img.fl{position:absolute;left:50%;bottom:-3px;width:122%;height:auto;max-width:none;transform:translateX(-50%);pointer-events:none}
 @media (max-width:640px){.photo{width:100%}.photo>img.pic{border-radius:24px 24px 0 0}.photo>img.fl{width:112%}}
 @media (min-width:641px) and (max-width:1024px){.photo{width:min(86%,560px)}}
+
+
+/* Gentle motion for the existing floral decorations. */
+@keyframes floralSway{0%,100%{transform:translateY(0) rotate(-1deg) scale(1)}50%{transform:translateY(-7px) rotate(1deg) scale(1.025)}}
+@keyframes branchSway{0%,100%{transform:translate(0,0) rotate(-1deg)}50%{transform:translate(-3px,-6px) rotate(1.5deg)}}
+@keyframes branchSwayFlipped{0%,100%{transform:translate(0,0) scaleY(-1) rotate(-1deg)}50%{transform:translate(3px,-6px) scaleY(-1) rotate(1.5deg)}}
+@keyframes closingBloom{0%,100%{transform:translateX(-50%) scale(1)}50%{transform:translateX(-50%) scale(1.035)}}
+.branch.tr{animation:branchSway 8s ease-in-out infinite;transform-origin:top right}
+.branch.bl{animation:branchSwayFlipped 9s ease-in-out -3s infinite;transform-origin:bottom left}
+.photo>img.fl{animation:closingBloom 8s ease-in-out infinite;transform-origin:center bottom}
+.closing-flourish{position:relative;width:180px;height:72px;margin:0 auto 24px;pointer-events:none}
+.closing-flourish img{position:absolute;bottom:0;width:86px;height:auto;animation:floralSway 9s ease-in-out infinite}
+.closing-flourish .left{left:0}.closing-flourish .right{right:0;animation-delay:-4s}
 
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
@@ -295,7 +308,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 </head>
 <body class="locked">
 
-<audio id="bgm" autoplay loop preload="auto" playsinline src="/assets/bg-music.mp3?v=e38dfe0ea504"></audio>
+<audio id="bgm" title="Shani &amp; Neha | Wedding Invitation" autoplay loop preload="auto" playsinline src="/assets/bg-music.mp3?v=e38dfe0ea504"></audio>
 
 <!-- Opening cover -->
 <div id="cover" role="button" aria-label="Open the invitation" tabindex="0">
@@ -318,7 +331,6 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
   <!-- HERO -->
   <section id="hero">
     <video id="swanBg" class="swan-bg" data-src="/assets/Swan-web.mp4" autoplay muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
-    <div class="glow"></div>
     <div class="in">
       <div class="script wed hl">Wedding</div>
       <div class="date hl">09.05.2027</div>
@@ -451,6 +463,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 
   <!-- CLOSING -->
   <section id="closing">
+    <div class="closing-flourish rv" aria-hidden="true"><img class="left" src="assets/caaf2619f5155d.webp" alt="" loading="lazy" decoding="async"><img class="right" src="assets/12ee0cf96f4379.webp" alt="" loading="lazy" decoding="async"></div>
     <h2 class="script h2 rv">Hope to see you there!</h2>
     <div class="names2 rv">Shani &amp; Neha</div>
     <div class="photo">
@@ -471,6 +484,21 @@ var body=document.body;
 /* ═════════ Cover → video → site ═════════ */
 var cover=$('#cover'),vwrap=$('#vwrap'),vid=$('#vid'),bgm=$('#bgm'),abtn=$('#audioBtn'),icP=$('#icPause'),icPl=$('#icPlay');
 var started=false,released=false,primed=false,guard=null;
+
+/* Explicit metadata for the Android lock-screen / notification music card. */
+function updateMusicTitle(){
+  if(!('mediaSession' in navigator)||typeof MediaMetadata==='undefined')return;
+  try{navigator.mediaSession.metadata=new MediaMetadata({
+    title:document.title,
+    artist:'Shani & Neha',
+    album:'Wedding Invitation',
+    artwork:[{src:new URL('/assets/first%20seal.webp',location.href).href,type:'image/webp'}]
+  })}catch(e){}
+}
+updateMusicTitle();
+bgm.addEventListener('play',updateMusicTitle);
+bgm.addEventListener('loadedmetadata',updateMusicTitle);
+
 
 function prime(){ /* silently unlock audio on first touch (Safari / Samsung) */
   if(primed)return;primed=true;

@@ -90,9 +90,9 @@ img{display:block;max-width:100%}
 #hero .in{position:relative;z-index:2;padding-top:clamp(54px,10vh,110px);display:flex;flex-direction:column;align-items:center;width:100%}
 #hero .wed{font-size:clamp(34px,5vw,44px)}
 #hero .date{font-family:var(--body);font-weight:600;font-size:clamp(22px,3.2vw,29px);color:var(--gold);margin-top:6px;letter-spacing:.02em}
-#hero .names{margin-top:clamp(36px,6vh,66px);font-family:var(--names);font-weight:800;color:var(--gold);line-height:.86;font-size:clamp(64px,11.8vw,80px);display:flex;flex-direction:column;align-items:center}
+#hero .names{margin-top:clamp(48px,7.5vh,84px);font-family:var(--names);font-weight:800;color:var(--gold);line-height:.86;font-size:clamp(70px,12.8vw,88px);display:flex;flex-direction:column;align-items:center}
 #hero .names .amp{font-family:var(--script);font-weight:300;font-size:.42em;line-height:1.05;margin:2px 0 4px}
-#hero .scroll{margin-top:clamp(28px,6vh,56px);font-size:clamp(24px,3.6vw,28px)}
+#hero .scroll{margin-top:clamp(42px,7.5vh,74px);font-size:clamp(24px,3.6vw,28px)}
 #hero .chev{display:block;margin:6px auto 0;width:30px;height:16px;animation:bob 2.2s ease-in-out infinite}
 @keyframes bob{0%,100%{transform:translateY(0);opacity:.55}50%{transform:translateY(8px);opacity:1}}
 .hero-fl{position:absolute;bottom:-92px;z-index:4;pointer-events:none;height:auto}
@@ -117,7 +117,7 @@ body.go .hero-fl.r{animation-delay:.6s,3.4s}
 /* ───────── Invitation card ───────── */
 #invite{position:relative;z-index:1;padding:0 0 0}
 #invite .paper{--paper:url("assets/075550d04c73bc.webp");padding:clamp(100px,19vw,120px) 8% clamp(70px,12vw,90px);text-align:center;margin-top:0}
-#invite .ganesh{width:clamp(220px,64%,340px);margin:0 auto 20px;animation:ganeshBreathe 7s ease-in-out infinite}
+#invite .ganesh{width:clamp(220px,64%,340px);margin:0 auto 20px;animation:ganeshBreathe 5.5s ease-in-out infinite}
 #invite .blessing{font-size:clamp(32px,6.6vw,46px);line-height:1.18}
 #invite .dear{margin-top:clamp(18px,3vw,26px);font-size:clamp(19px,3.6vw,25px);line-height:1.22;color:var(--brown);font-weight:100}
 #invite .dear b{font-weight:100;display:block}
@@ -230,7 +230,7 @@ body.go .hero-fl.r{animation-delay:.6s,3.4s}
 #celebrate{padding:clamp(60px,9vw,90px) 20px 0;text-align:center}
 #celebrate p{max-width:23em;margin:14px auto 0;font-size:clamp(19px,4.2vw,25px);line-height:1.25;color:var(--brown)}
 #famBtn{margin:clamp(30px,5vw,44px) auto 0;display:inline-flex;flex-direction:column;align-items:center;gap:6px;background:none;border:0;cursor:pointer;font:inherit;-webkit-tap-highlight-color:transparent}
-#famBtn .seal{width:clamp(104px,28vw,130px);height:auto;filter:drop-shadow(0 8px 10px rgba(90,15,27,.25));transition:transform .4s ease;animation:floaty 5s ease-in-out infinite}
+#famBtn .seal{width:clamp(124px,34vw,158px);height:auto;filter:drop-shadow(0 8px 10px rgba(90,15,27,.25));transition:transform .4s ease;animation:floaty 5s ease-in-out infinite}
 #famBtn:hover .seal,#famBtn:focus-visible .seal{transform:scale(1.05) rotate(-2deg)}
 #famBtn .lab{font-family:var(--script);font-weight:300;font-size:clamp(28px,6vw,37px);color:var(--gold);line-height:1.18;max-width:16em}
 #famBtn svg{width:26px;height:14px;animation:bob 2.2s ease-in-out infinite}
@@ -295,12 +295,12 @@ body.go .hero-fl.r{animation-delay:.6s,3.4s}
 .branch.tr{animation:branchSway 8s ease-in-out infinite;transform-origin:top right}
 .branch.bl{animation:branchSwayFlipped 9s ease-in-out -3s infinite;transform-origin:center}
 .photo>img.fl{animation:closingBloom 8s ease-in-out infinite;transform-origin:center bottom}
-.closing-flourish{position:relative;width:140px;height:140px;margin:0 auto 28px;pointer-events:none}
+.closing-flourish{position:relative;width:220px;height:220px;margin:0 auto 28px;pointer-events:none}
 .closing-flourish img{width:100%;height:100%;object-fit:contain;animation:bloomRevolve 24s linear infinite}
 
 
 @keyframes scratchFloat{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-18px) rotate(calc(var(--r,0deg) * -1))}}
-@keyframes ganeshBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+@keyframes ganeshBreathe{0%,100%{transform:scale(.97)}50%{transform:scale(1.09)}}
 @keyframes bloomRevolve{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
 .photo{opacity:0;transform:perspective(1000px) translateY(42px) rotateY(-7deg) scale(.94);filter:blur(3px) saturate(.7);transition:opacity 1.3s ease,transform 1.6s cubic-bezier(.2,.75,.2,1),filter 1.4s ease;transform-origin:center bottom}
 .photo.photo-revealed{opacity:1;transform:perspective(1000px) translateY(0) rotateY(0) scale(1);filter:none}
@@ -407,7 +407,7 @@ body.go .hero-fl.r{animation-delay:.6s,3.4s}
     <img class="orn rv" src="assets/4956350a9355d5.png" alt="" aria-hidden="true">
     <p class="place rv">Bhauwapar, Gorakhpur,<br>Uttar Pradesh</p>
     <div class="temple rv">
-      <img src="/assets/temple.webp?v=0a22bbd0099c" alt="Illustration of the venue" loading="eager">
+      <img src="/assets/optimized/temple.webp?v=57dd8822c6f2" alt="Illustration of the venue" loading="eager">
       <img class="p p1" src="assets/1dd766ceb4167d.png" alt="" aria-hidden="true">
       <img class="p p2" src="assets/4ffd7a196bd4c8.png" alt="" aria-hidden="true">
       <img class="p p3" src="assets/23c733fcbffc46.png" alt="" aria-hidden="true">
@@ -425,6 +425,7 @@ body.go .hero-fl.r{animation-delay:.6s,3.4s}
 
   <!-- DRESS CODE + GIFT -->
   <section id="details">
+    <div class="closing-flourish dress-flourish rv" aria-hidden="true"><img src="/assets/optimized/bloomsflower.webp?v=0cd6145e915b" alt="" width="220" height="220" loading="lazy" decoding="async"></div>
     <div class="paper rv">
       <img class="branch tr" src="assets/e688482d80e2e5.webp" alt="" aria-hidden="true">
       <h3 class="script">Dress Code</h3>
@@ -455,8 +456,8 @@ body.go .hero-fl.r{animation-delay:.6s,3.4s}
             <div class="slide fill" data-name="Sanjana"><div class="bg"></div><div class="sk"></div><img src="assets/Sanjana.webp" alt="Sanjana" width="1400" height="932" loading="lazy" decoding="async"></div>
             <div class="slide fill" data-name="Papa"><div class="bg"></div><div class="sk"></div><img src="assets/Papa.webp" alt="Papa" width="1400" height="932" loading="lazy" decoding="async"></div>
             <div class="slide fill" data-name="Ladki Wale ki Taraf se"><div class="bg"></div><div class="sk"></div><img src="assets/Ladki%20Wale%20ki%20Taraf%20se.webp" alt="Ladki Wale ki Taraf se" width="1400" height="932" loading="lazy" decoding="async"></div>
-            <div class="slide fill" data-name="Ma"><div class="bg"></div><div class="sk"></div><img src="/assets/Ma.webp?v=5c2d64eacb58" alt="Ma" loading="lazy" decoding="async"></div>
-            <div class="slide fill" data-name="SleepingPapa"><div class="bg"></div><div class="sk"></div><img src="/assets/SleepingPapa.webp?v=4458bf26bd40" alt="SleepingPapa" loading="lazy" decoding="async"></div>
+            <div class="slide fill" data-name="Ma"><div class="bg"></div><div class="sk"></div><img src="/assets/optimized/Ma.webp?v=2ea031def117" alt="Ma" loading="lazy" decoding="async"></div>
+            <div class="slide fill" data-name="SleepingPapa"><div class="bg"></div><div class="sk"></div><img src="/assets/optimized/SleepingPapa.webp?v=ec57811eaafa" alt="SleepingPapa" loading="lazy" decoding="async"></div>
             <div class="slide fill" data-name="Ladki Wale Phir se"><div class="bg"></div><div class="sk"></div><img src="assets/Ladki%20Wale%20Phir%20se.webp" alt="Ladki Wale Phir se" width="1400" height="932" loading="lazy" decoding="async"></div>
             <div class="slide fill" data-name="Mother"><div class="bg"></div><div class="sk"></div><img src="assets/Mother.webp" alt="Mother" width="1400" height="932" loading="lazy" decoding="async"></div>
           </div>
@@ -471,11 +472,11 @@ body.go .hero-fl.r{animation-delay:.6s,3.4s}
 
   <!-- CLOSING -->
   <section id="closing">
-    <div class="closing-flourish rv" aria-hidden="true"><img class="rotating-bloom" src="/assets/bloomsflower.webp?v=114756073ce0" alt="" width="140" height="140" loading="lazy" decoding="async"></div>
+    <div class="closing-flourish rv" aria-hidden="true"><img class="rotating-bloom" src="/assets/optimized/bloomsflower.webp?v=0cd6145e915b" alt="" width="140" height="140" loading="lazy" decoding="async"></div>
     <h2 class="script h2 rv">Hope to see you there!</h2>
     <div class="names2 rv">Shani &amp; Neha</div>
     <div class="photo">
-      <img class="pic" src="/assets/Shaniandneha.webp?v=ee3b5d54edee" alt="Shani and Neha" width="1125" height="1500" loading="lazy" decoding="async">
+      <img class="pic" src="/assets/optimized/Shaniandneha.webp?v=3f16d34cd67a" alt="Shani and Neha" width="1125" height="1500" loading="lazy" decoding="async">
       <img class="fl" src="assets/7f5bd2ba34e8ce.webp" alt="" aria-hidden="true" width="1100" height="1100">
     </div>
     <div id="closing-firework-trigger" aria-hidden="true"></div>
@@ -885,34 +886,37 @@ if('IntersectionObserver' in window&&!reduce){
     reveal.observe(photo);
   }
   if(reduce||!('IntersectionObserver' in window))return;
-  var running=false,lastShow=-20000;
+  var running=false,visible=false,stopShow=null;
   function fireworks(){
-    var now=performance.now();if(running||now-lastShow<15000||document.hidden)return;
-    running=true;lastShow=now;
+    if(running||!visible||document.hidden)return;
+    running=true;
     var canvas=document.createElement('canvas');canvas.className='closing-fireworks';canvas.setAttribute('aria-hidden','true');document.body.appendChild(canvas);
     var ctx=canvas.getContext('2d');if(!ctx){canvas.remove();running=false;return}
     var W=innerWidth,H=innerHeight,dpr=Math.min(devicePixelRatio||1,1.5);
     canvas.width=Math.round(W*dpr);canvas.height=Math.round(H*dpr);ctx.scale(dpr,dpr);
     var colours=['#d8b66b','#b48c3d','#edc3b1','#a75569','#f5dfaa','#8f3652'];
-    var rockets=[],sparks=[],schedule=[0,240,920,1160,1900,2140,2920,3160],sent=0,start=performance.now(),previous=start;
+    var rockets=[],sparks=[],sent=0,start=performance.now(),previous=start,nextLaunch=0,raf=0;
     function launch(side){
       var r=photo.getBoundingClientRect(),base=side?r.right-18:r.left+18;
       base=Math.max(24,Math.min(W-24,base));
       var target=Math.max(26,Math.min(W-26,base+(side?-1:1)*(35+Math.random()*70)));
       var sy=Math.min(H-10,Math.max(H*.75,r.bottom-20));
-      rockets.push({x:base,y:sy,sx:base,sy:sy,tx:target,ty:H*(.19+Math.random()*.22),age:0,duration:.7+Math.random()*.2,trail:[],colour:colours[sent%colours.length]});
+      rockets.push({x:base,y:sy,sx:base,sy:sy,tx:target,ty:H*(.35+Math.random()*.22),age:0,duration:.7+Math.random()*.2,trail:[],colour:colours[sent%colours.length]});
     }
     function burst(r){
-      for(var i=0;i<54;i++){
-        var a=Math.PI*2*i/54+Math.random()*.13,speed=55+Math.random()*130;
+      var count=W<700?30:42;
+      for(var i=0;i<count;i++){
+        var a=Math.PI*2*i/count+Math.random()*.13,speed=55+Math.random()*130;
         sparks.push({x:r.x,y:r.y,vx:Math.cos(a)*speed,vy:Math.sin(a)*speed,age:0,life:1.2+Math.random()*.9,size:.9+Math.random()*1.5,colour:colours[(i+sent)%colours.length]});
       }
+      var cap=W<700?240:360;if(sparks.length>cap)sparks.splice(0,sparks.length-cap);
     }
-    function finish(){canvas.remove();running=false}
+    function finish(){cancelAnimationFrame(raf);canvas.remove();running=false;stopShow=null}
+    stopShow=finish;
     function frame(t){
-      if(document.hidden||innerWidth!==W||innerHeight!==H){finish();return}
+      if(!visible||document.hidden||innerWidth!==W||innerHeight!==H){finish();return}
       var elapsed=t-start,dt=Math.min((t-previous)/1000,.04);previous=t;
-      while(sent<schedule.length&&elapsed>=schedule[sent]){launch(sent%2);sent++}
+      if(elapsed>=nextLaunch){launch(sent%2);sent++;nextLaunch=elapsed+260}
       ctx.clearRect(0,0,W,H);
       rockets=rockets.filter(function(r){
         r.age+=dt;var p=Math.min(1,r.age/r.duration),e=1-Math.pow(1-p,1.65);
@@ -929,11 +933,13 @@ if('IntersectionObserver' in window&&!reduce){
         ctx.beginPath();ctx.arc(p.x,p.y,p.size,0,Math.PI*2);ctx.fill();return true;
       });
       ctx.globalAlpha=1;
-      if(elapsed<6800&&(sent<schedule.length||rockets.length||sparks.length))requestAnimationFrame(frame);else finish();
+      raf=requestAnimationFrame(frame);
     }
-    requestAnimationFrame(frame);
+    raf=requestAnimationFrame(frame);
   }
-  new IntersectionObserver(function(entries){if(entries[0].isIntersecting)fireworks()},{threshold:.1}).observe(marker);
+  new IntersectionObserver(function(entries){visible=entries[0].isIntersecting;if(visible)fireworks();else if(stopShow)stopShow()},{threshold:.12}).observe(photo);
+  document.addEventListener('visibilitychange',function(){if(document.hidden){if(stopShow)stopShow()}else if(visible)fireworks()});
+  addEventListener('resize',function(){if(stopShow)stopShow();if(visible)setTimeout(fireworks,120)});
 })();
 
 })();

@@ -2,6 +2,8 @@
 
 Static website (no build step). Everything is in `index.html`; media lives in `assets/`.
 
+**Full change guide:** see `GUIDE.md` · **Master prompt to recreate everything:** see `PROMPT.md`
+
 ## Files YOU must upload into `assets/` (exact names, case-sensitive)
 
 | File | Used for |
@@ -12,7 +14,6 @@ Static website (no build step). Everything is in `index.html`; media lives in `a
 | `om ganehya namah.webp` | Ganesh artwork in the invitation card |
 | `neha shani.webp` | Closing couple photo |
 | `guest.webp` | Wax seal button that opens the family gallery |
-| `logo.png` | Browser tab icon + WhatsApp preview image |
 | `Aryan.webp`, `Musu.webp`, `Sanjana.webp`, `Papa.webp`, `Ladki Wale ki Taraf se.webp`, `Ladki Wale Phir se.webp`, `Mother.webp` | Family gallery, in this order |
 
 Tip: GitHub's web uploader accepts files up to 25 MB; larger files (e.g. the video) need GitHub Desktop or `git push`.

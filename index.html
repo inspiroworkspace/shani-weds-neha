@@ -49,7 +49,7 @@ img{display:block;max-width:100%}
 
 /* ───────── Opening cover + intro video ───────── */
 #cover{position:fixed;top:0;right:0;bottom:0;left:0;z-index:99999;background:var(--bg);display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;transition:opacity 1.2s ease}
-#cover img{width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none}
+#cover img{width:100%;height:100%;object-fit:cover;display:block;-webkit-user-drag:none}
 #tap{position:absolute;left:50%;bottom:max(7vh,28px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;animation:tapIn 1.2s .8s both;pointer-events:none}
 #tap span{font-family:'Cinzel',Georgia,serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(140,100,60,.85);white-space:nowrap;text-shadow:0 0 8px rgba(249,240,224,.9);animation:tapPulse 2.4s 1.6s ease-in-out infinite}
 #tap i{width:10px;height:10px;border-right:1.5px solid rgba(140,100,60,.75);border-top:1.5px solid rgba(140,100,60,.75);transform:rotate(-45deg);animation:chev 2.4s 1.9s ease-in-out infinite}
@@ -60,9 +60,8 @@ img{display:block;max-width:100%}
 #vwrap{position:fixed;top:0;right:0;bottom:0;left:0;z-index:100000;background:var(--bg);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .8s ease}
 #vwrap.in{opacity:1;visibility:visible;pointer-events:all}
 #vwrap.out{opacity:0;transition:opacity 1.4s ease;pointer-events:none}
-#vid{width:100%;height:100%;object-fit:contain;display:block;background:var(--bg);pointer-events:none}
+#vid{width:100%;height:100%;object-fit:cover;display:block;background:var(--bg);pointer-events:none}
 /* phones & tablets: fill the whole screen. laptops: show the complete video */
-@media (min-width:1025px){#cover,#vwrap,#vid{background:#14060a}}
 @media (max-width:1024px){#cover img,#vid{object-fit:cover}}
 
 #audioBtn{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom));width:60px;height:60px;border-radius:50%;background:#5a0f1b;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:2147483000;box-shadow:0 4px 10px rgba(0,0,0,.18);border:0;visibility:hidden;opacity:0;transition:opacity .4s ease;-webkit-tap-highlight-color:transparent}
@@ -295,7 +294,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 </head>
 <body class="locked">
 
-<audio id="bgm" loop preload="auto" playsinline src="assets/bg-music.mp3"></audio>
+<audio id="bgm" autoplay loop preload="auto" playsinline src="/assets/bg-music.mp3?v=e38dfe0ea504"></audio>
 
 <!-- Opening cover -->
 <div id="cover" role="button" aria-label="Open the invitation" tabindex="0">
@@ -304,7 +303,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 </div>
 <!-- Intro video (plays fully, cannot be skipped) -->
 <div id="vwrap" aria-hidden="true">
-  <video id="vid" src="/assets/Intro%20Final.mp4?v=13d1e7944119" playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback"></video>
+  <video id="vid" src="/assets/Updated-Intros.mp4?v=937943faacfa" playsinline webkit-playsinline preload="auto" disablepictureinpicture controlslist="nodownload noplaybackrate noremoteplayback"></video>
 </div>
 <button id="audioBtn" type="button" aria-label="Pause or play music">
   <svg id="icPause" viewBox="0 0 24 24"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
@@ -385,7 +384,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
     <img class="orn rv" src="assets/4956350a9355d5.png" alt="" aria-hidden="true">
     <p class="place rv">Bhauwapar, Gorakhpur,<br>Uttar Pradesh</p>
     <div class="temple rv">
-      <img src="/assets/11c0524185e506.webp?v=0a804f0a9d3d" alt="Illustration of the venue" loading="eager">
+      <img src="/assets/temple.webp?v=0a22bbd0099c" alt="Illustration of the venue" loading="eager">
       <img class="p p1" src="assets/1dd766ceb4167d.png" alt="" aria-hidden="true">
       <img class="p p2" src="assets/4ffd7a196bd4c8.png" alt="" aria-hidden="true">
       <img class="p p3" src="assets/23c733fcbffc46.png" alt="" aria-hidden="true">
@@ -433,8 +432,10 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
             <div class="slide fill" data-name="Musu"><div class="bg"></div><div class="sk"></div><img src="assets/Musu.webp" alt="Musu" width="1400" height="932" decoding="async" style="object-position:left center"></div>
             <div class="slide fill" data-name="Sanjana"><div class="bg"></div><div class="sk"></div><img src="assets/Sanjana.webp" alt="Sanjana" width="1400" height="932" decoding="async"></div>
             <div class="slide fill" data-name="Papa"><div class="bg"></div><div class="sk"></div><img src="assets/Papa.webp" alt="Papa" width="1400" height="932" decoding="async"></div>
-            <div class="slide fit" data-name="Ladki Wale ki Taraf se"><div class="bg"></div><div class="sk"></div><img src="assets/Ladki%20Wale%20ki%20Taraf%20se.webp" alt="Ladki Wale ki Taraf se" width="1400" height="932" decoding="async"></div>
-            <div class="slide fit" data-name="Ladki Wale Phir se"><div class="bg"></div><div class="sk"></div><img src="assets/Ladki%20Wale%20Phir%20se.webp" alt="Ladki Wale Phir se" width="1400" height="932" decoding="async"></div>
+            <div class="slide fill" data-name="Ladki Wale ki Taraf se"><div class="bg"></div><div class="sk"></div><img src="assets/Ladki%20Wale%20ki%20Taraf%20se.webp" alt="Ladki Wale ki Taraf se" width="1400" height="932" decoding="async"></div>
+            <div class="slide fill" data-name="Ma"><div class="bg"></div><div class="sk"></div><img src="/assets/Ma.webp?v=5c2d64eacb58" alt="Ma" decoding="async"></div>
+            <div class="slide fill" data-name="SleepingPapa"><div class="bg"></div><div class="sk"></div><img src="/assets/SleepingPapa.webp?v=4458bf26bd40" alt="SleepingPapa" decoding="async"></div>
+            <div class="slide fill" data-name="Ladki Wale Phir se"><div class="bg"></div><div class="sk"></div><img src="assets/Ladki%20Wale%20Phir%20se.webp" alt="Ladki Wale Phir se" width="1400" height="932" decoding="async"></div>
             <div class="slide fill" data-name="Mother"><div class="bg"></div><div class="sk"></div><img src="assets/Mother.webp" alt="Mother" width="1400" height="932" decoding="async"></div>
           </div>
           <button class="arrow prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24"><polyline points="15,4 7,12 15,20"/></svg></button>
@@ -451,7 +452,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
     <h2 class="script h2 rv">Hope to see you there!</h2>
     <div class="names2 rv">Shani &amp; Neha</div>
     <div class="photo">
-      <img class="pic" src="/assets/neha%20shani.webp?v=3fa206b0b893" alt="Shani and Neha" width="1125" height="1500" decoding="async">
+      <img class="pic" src="/assets/Shaniandneha.webp?v=ee3b5d54edee" alt="Shani and Neha" width="1125" height="1500" decoding="async">
       <img class="fl" src="assets/7f5bd2ba34e8ce.webp" alt="" aria-hidden="true" width="1100" height="1100">
     </div>
   </section>

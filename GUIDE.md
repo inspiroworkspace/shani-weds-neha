@@ -59,17 +59,21 @@ Tip: in Google Maps, search your venue → Share → *Embed a map* shows the exa
 **Video tips:** vertical 9:16, ideally under 10 MB. Compress free at https://www.freeconvert.com/video-compressor (H.264 MP4).
 
 ## 6. Family gallery – add / remove / reorder people
-In `index.html` search `EDIT HERE`. You'll see:
-```js
-{f:'Aryan',fit:'fill'},
-{f:'Musu',fit:'fill',pos:'left center'},
-{f:'Ladki Wale ki Taraf se',fit:'fit'},
+In `index.html` search `class="slide`. Each photo is one line:
+```html
+<div class="slide fill" data-name="Aryan"> ... <img src="assets/Aryan.webp" alt="Aryan" ...></div>
 ```
-- `f` = file name (without `.webp`) and also the caption shown under the photo.
-- `fit:'fill'` fills the frame (crops). `fit:'fit'` shows the whole photo (best for group photos).
-- `pos:'left center'` moves the focus point when cropping (`left`, `right`, `top`, `bottom`, `center`).
-- Order of lines = order in the gallery. Add a line = add a person (upload `Name.webp` too). The gallery loops automatically.
-- Speed of auto-slide: search `4800` (milliseconds). Turn auto-slide off: search `startAuto()` inside the click handler and delete `setTimeout(startAuto,3500)`.
+- `data-name` = caption shown under the photo. `src` = the file in `assets/` (spaces written as `%20`).
+- `slide fill` fills the frame (crops). `slide fit` shows the whole photo over a soft blur (best for group photos).
+- To move the focus when cropping add `style="object-position:left center"` inside the `<img ...>` (`left`, `right`, `top`, `bottom`, `center`).
+- Order of lines = order in the gallery. Copy a whole line to add a person (and upload `Name.webp`), delete a line to remove one. It loops automatically.
+- Auto-slide speed: search `4800` (milliseconds). To switch auto-slide off delete `setTimeout(startAuto,3500)`.
+
+## 6b. Flower shower (Dress Code / Gift Preference)
+Search `Flower shower`. `var n=innerWidth<700?70:120;` = how many flowers (phone / laptop). `rnd(4.2,8.4)` = fall time in seconds. It plays every time the section scrolls into view (at most once per 9 seconds: `9000`).
+
+## 6c. Music
+`assets/bg-music.mp3` loops forever. The browser only allows sound after a tap, so it starts the moment the guest taps the cover (and on the first touch/scroll if blocked). The round button bottom-right pauses/plays. During the intro video the music is quiet (`bgm.volume=.22`) and rises to full afterwards.
 
 ## 7. Colours and fonts
 At the top of the `<style>` block (search `:root{`):  

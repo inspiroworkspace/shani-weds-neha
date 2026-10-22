@@ -48,7 +48,7 @@ img{display:block;max-width:100%}
 #site{position:relative;overflow-x:clip}
 
 /* ───────── Opening cover + intro video ───────── */
-#cover{position:fixed;inset:0;z-index:99999;background:var(--bg);display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;transition:opacity 1.2s ease}
+#cover{position:fixed;top:0;right:0;bottom:0;left:0;z-index:99999;background:var(--bg);display:flex;align-items:center;justify-content:center;cursor:pointer;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;transition:opacity 1.2s ease}
 #cover img{width:100%;height:100%;object-fit:contain;display:block;-webkit-user-drag:none}
 #tap{position:absolute;left:50%;bottom:max(7vh,28px);transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:7px;animation:tapIn 1.2s .8s both;pointer-events:none}
 #tap span{font-family:'Cinzel',Georgia,serif;font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:rgba(140,100,60,.85);white-space:nowrap;text-shadow:0 0 8px rgba(249,240,224,.9);animation:tapPulse 2.4s 1.6s ease-in-out infinite}
@@ -57,7 +57,7 @@ img{display:block;max-width:100%}
 @keyframes tapPulse{0%,100%{opacity:.5;letter-spacing:.26em}50%{opacity:1;letter-spacing:.3em}}
 @keyframes chev{0%,100%{transform:rotate(-45deg) translate(0,0);opacity:.6}50%{transform:rotate(-45deg) translate(2px,-2px);opacity:1}}
 
-#vwrap{position:fixed;inset:0;z-index:100000;background:var(--bg);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .8s ease}
+#vwrap{position:fixed;top:0;right:0;bottom:0;left:0;z-index:100000;background:var(--bg);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;pointer-events:none;transition:opacity .8s ease}
 #vwrap.in{opacity:1;visibility:visible;pointer-events:all}
 #vwrap.out{opacity:0;transition:opacity 1.4s ease;pointer-events:none}
 #vid{width:100%;height:100%;object-fit:contain;display:block;background:var(--bg);pointer-events:none}
@@ -71,7 +71,7 @@ img{display:block;max-width:100%}
 @media (max-width:600px){#audioBtn{width:52px;height:52px;right:14px}#audioBtn svg{width:24px;height:24px}}
 
 /* ───────── Falling petals ───────── */
-#petals{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:50}
+#petals{position:fixed;top:0;right:0;bottom:0;left:0;pointer-events:none;overflow:hidden;z-index:50}
 .petal{position:absolute;top:-60px;will-change:transform;animation:fall linear infinite}
 .petal img{width:100%;height:auto;animation:sway ease-in-out infinite alternate;opacity:.85}
 @keyframes fall{from{transform:translate3d(0,-60px,0)}to{transform:translate3d(var(--dx,40px),calc(100vh + 80px),0)}}
@@ -133,18 +133,19 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 .hint b{display:inline-block;font-weight:400;color:#c9803a;margin-right:6px;animation:nudge 1.6s ease-in-out infinite}
 @keyframes nudge{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 .scw.done .hint{opacity:0}
-.sc{position:relative;width:100%;aspect-ratio:4/5;border-radius:26px;animation:floaty 5.5s ease-in-out infinite;-webkit-tap-highlight-color:transparent;outline:none;--r:-1.2deg}
+.sc{position:relative;width:100%;border-radius:26px;animation:floaty 5.5s ease-in-out infinite;-webkit-tap-highlight-color:transparent;outline:none;--r:-1.2deg}
 .scw:nth-child(2) .sc{animation-delay:-1.8s;--r:1.1deg}.scw:nth-child(3) .sc{animation-delay:-3.6s;--r:-.8deg}
 @keyframes floaty{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-10px) rotate(calc(var(--r,0deg) * -1))}}
 .sc:focus-visible{box-shadow:0 0 0 3px rgba(201,128,58,.6)}
-.sc .face{position:absolute;inset:0;border-radius:26px;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#fcebe0,#f1d3c4);box-shadow:0 20px 38px rgba(158,84,89,.28),0 0 0 2px rgba(196,132,138,.55)}
-.sc .face::before{content:"";position:absolute;inset:8px;border-radius:20px;border:1.6px solid #e0ad55}
+.sc::before{content:"";display:block;padding-bottom:125%}
+.sc .face{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:26px;display:flex;align-items:center;justify-content:center;background:linear-gradient(155deg,#fcebe0,#f1d3c4);box-shadow:0 20px 38px rgba(158,84,89,.28),0 0 0 2px rgba(196,132,138,.55)}
+.sc .face::before{content:"";position:absolute;top:8px;right:8px;bottom:8px;left:8px;border-radius:20px;border:1.6px solid #e0ad55}
 .sc .face::after{content:"";position:absolute;left:18px;top:18px;width:20px;height:20px;background:#c58089;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%)}
 .sc .face span{position:relative;font-family:var(--num);line-height:1;font-size:clamp(50px,13vw,80px);color:#6a2536;background:linear-gradient(160deg,#84304a,#561a2a);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
 .sc[data-v="MAY"] .face span{letter-spacing:.04em;padding-left:.04em;font-size:clamp(44px,11.5vw,70px)}
-.sc canvas{position:absolute;inset:0;width:100%;height:100%;border-radius:26px;touch-action:none;cursor:grab;transition:opacity .9s ease,transform .9s ease}
+.sc canvas{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;border-radius:26px;touch-action:none;cursor:grab;transition:opacity .9s ease,transform .9s ease}
 .sc.done canvas{opacity:0;transform:scale(1.06);pointer-events:none}
-.sc .sheen{position:absolute;inset:0;border-radius:26px;overflow:hidden;pointer-events:none;transition:opacity .5s}
+.sc .sheen{position:absolute;top:0;right:0;bottom:0;left:0;border-radius:26px;overflow:hidden;pointer-events:none;transition:opacity .5s}
 .sc .sheen::after{content:"";position:absolute;top:-20%;bottom:-20%;width:38%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:sheen 3.6s ease-in-out infinite}
 .scw:nth-child(2) .sheen::after{animation-delay:1.2s}
 .scw:nth-child(3) .sheen::after{animation-delay:2.4s}
@@ -210,8 +211,9 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 .mapwrap .oT,.mapwrap .oB{position:absolute;left:50%;width:min(76%,260px);transform:translateX(-50%);height:auto;pointer-events:none}
 .mapwrap .oT{top:-24px}.mapwrap .oB{bottom:-24px;transform:translateX(-50%) scaleY(-1)}
 .maplink{display:inline-block;margin-top:46px;font-family:var(--script);font-weight:300;font-size:clamp(22px,4.6vw,26px);color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(166,125,43,.45);padding-bottom:2px}
-.mapframe{border:2.5px solid #d7b068;border-radius:20px;overflow:hidden;background:#f3e8d0;aspect-ratio:340/380;box-shadow:0 8px 24px rgba(166,125,43,.15)}
-.mapframe iframe{width:100%;height:100%;border:0;display:block;filter:sepia(.18) saturate(.9)}
+.mapframe{border:2.5px solid #d7b068;border-radius:20px;overflow:hidden;background:#f3e8d0;position:relative;box-shadow:0 8px 24px rgba(166,125,43,.15)}
+.mapframe::before{content:"";display:block;padding-bottom:111.76%}
+.mapframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0;display:block;filter:sepia(.18) saturate(.9)}
 
 /* ───────── Dress code + gifts ───────── */
 #details{padding:clamp(80px,13vw,110px) 0 0}
@@ -238,22 +240,22 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 #gallery>div{overflow:hidden;min-height:0}
 .gal-in{padding:clamp(46px,8vw,70px) 0 10px;text-align:center}
 .car{position:relative;width:100%;max-width:760px;margin:clamp(20px,4vw,30px) auto 0;--w:min(70vw,360px);height:calc(var(--w)*1.25 + 34px);touch-action:pan-y;user-select:none;-webkit-user-select:none}
-.slide{position:absolute;left:50%;top:14px;width:var(--w);aspect-ratio:4/5;margin-left:calc(var(--w) / -2);border-radius:18px;overflow:hidden;background:#f1e5cc;
+.slide{position:absolute;left:50%;top:14px;width:var(--w);height:calc(var(--w) * 1.25);margin-left:calc(var(--w) / -2);border-radius:18px;overflow:hidden;background:#f1e5cc;
   box-shadow:0 18px 36px rgba(120,85,40,.24),0 0 0 2px rgba(205,169,90,.75),0 0 0 8px rgba(255,251,242,.97),0 0 0 9px rgba(205,169,90,.45);
   transform:translate3d(0,0,0) scale(.8);opacity:0;visibility:hidden;cursor:pointer;
   transition:transform 1s cubic-bezier(.22,.8,.22,1),opacity .8s ease,visibility 0s 1s,filter .8s ease;will-change:transform,opacity}
 .slide.vis{visibility:visible;transition:transform 1s cubic-bezier(.22,.8,.22,1),opacity .8s ease,visibility 0s,filter .8s ease}
 .slide.c{cursor:default}
-.slide .sk{position:absolute;inset:0;background:linear-gradient(100deg,#f1e5cc 30%,#fbf3e0 50%,#f1e5cc 70%);background-size:220% 100%;animation:skel 1.4s linear infinite}
+.slide .sk{position:absolute;top:0;right:0;bottom:0;left:0;background:linear-gradient(100deg,#f1e5cc 30%,#fbf3e0 50%,#f1e5cc 70%);background-size:220% 100%;animation:skel 1.4s linear infinite}
 .slide.ld .sk{opacity:0;transition:opacity .6s ease;animation:none}
 @keyframes skel{from{background-position:120% 0}to{background-position:-120% 0}}
-.slide .bg{position:absolute;inset:-12%;background-size:cover;background-position:center;filter:blur(16px) saturate(1.1);opacity:0;transition:opacity .8s}
+.slide .bg{position:absolute;top:-12%;right:-12%;bottom:-12%;left:-12%;background-size:cover;background-position:center;filter:blur(16px) saturate(1.1);opacity:0;transition:opacity .8s}
 .slide.fit.ld .bg{opacity:.85}
-.slide img{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .9s ease;-webkit-user-drag:none;pointer-events:none}
+.slide img{position:absolute;top:0;right:0;bottom:0;left:0;width:100%;height:100%;display:block;opacity:0;transition:opacity .9s ease;-webkit-user-drag:none;pointer-events:none}
 .slide.ld img{opacity:1}
 .slide.fill img{object-fit:cover}
 .slide.fit img{object-fit:contain}
-.slide::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);transform:translateX(-120%);opacity:0}
+.slide::after{content:"";position:absolute;top:0;right:0;bottom:0;left:0;pointer-events:none;background:linear-gradient(115deg,transparent 40%,rgba(255,255,255,.28) 50%,transparent 60%);transform:translateX(-120%);opacity:0}
 .slide.c.shine::after{animation:shine 1.5s .35s ease-out}
 @keyframes shine{0%{transform:translateX(-120%);opacity:1}100%{transform:translateX(120%);opacity:1}}
 .arrow{position:absolute;top:50%;width:46px;height:46px;margin-top:-10px;border-radius:50%;border:1.5px solid rgba(205,169,90,.9);background:rgba(251,244,230,.94);cursor:pointer;display:flex;align-items:center;justify-content:center;z-index:30;-webkit-tap-highlight-color:transparent;transition:background .3s,transform .3s;box-shadow:0 4px 12px rgba(120,85,40,.15)}
@@ -268,6 +270,10 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 .dots i{width:7px;height:7px;border-radius:50%;background:rgba(166,125,43,.28);transition:background .4s,transform .4s,width .4s;cursor:pointer}
 .dots i.on{background:var(--gold);width:22px;border-radius:6px}
 .gal-spark{position:absolute;pointer-events:none;z-index:40;width:10px;height:10px;background:#f3cd7a;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%);animation:gs 1.1s ease-out forwards}
+/* flower shower */
+.shower{position:fixed;top:-60px;z-index:60;pointer-events:none;will-change:transform;animation:shfall linear forwards}
+.shower img{width:100%;height:auto;display:block;filter:drop-shadow(0 2px 3px rgba(120,70,60,.2))}
+@keyframes shfall{0%{transform:translate3d(0,-60px,0) rotate(0)}100%{transform:translate3d(var(--dx),calc(100vh + 90px),0) rotate(var(--rot))}}
 @keyframes gs{from{opacity:1;transform:translate(0,0) scale(1) rotate(0)}to{opacity:0;transform:translate(var(--x),var(--y)) scale(.2) rotate(180deg)}}
 
 /* ───────── Closing ───────── */
@@ -275,7 +281,7 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
 #closing .names2{font-family:var(--body);font-weight:100;font-size:clamp(25px,5vw,32px);color:var(--gold);margin-top:10px}
 .photo{position:relative;width:min(100%,460px);margin:clamp(26px,4vw,40px) auto 0;line-height:0}
 .photo>img.pic{width:100%;height:auto;border-radius:28px 28px 0 0}
-.photo>img.fl{position:absolute;left:50%;bottom:-3px;width:122%;max-width:none;transform:translateX(-50%);pointer-events:none}
+.photo>img.fl{position:absolute;left:50%;bottom:-3px;width:122%;height:auto;max-width:none;transform:translateX(-50%);pointer-events:none}
 @media (max-width:640px){.photo{width:100%}.photo>img.pic{border-radius:24px 24px 0 0}.photo>img.fl{width:112%}}
 @media (min-width:641px) and (max-width:1024px){.photo{width:min(86%,560px)}}
 
@@ -422,7 +428,15 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
       <div class="gal-in">
         <h2 class="script h2">Our family member</h2>
         <div class="car" id="car" aria-roledescription="carousel" aria-label="Our family members" tabindex="0">
-          <div id="stage"></div>
+          <div id="stage">
+            <div class="slide fill" data-name="Aryan"><div class="bg"></div><div class="sk"></div><img src="assets/Aryan.webp" alt="Aryan" width="1400" height="932" decoding="async"></div>
+            <div class="slide fill" data-name="Musu"><div class="bg"></div><div class="sk"></div><img src="assets/Musu.webp" alt="Musu" width="1400" height="932" decoding="async" style="object-position:left center"></div>
+            <div class="slide fill" data-name="Sanjana"><div class="bg"></div><div class="sk"></div><img src="assets/Sanjana.webp" alt="Sanjana" width="1400" height="932" decoding="async"></div>
+            <div class="slide fill" data-name="Papa"><div class="bg"></div><div class="sk"></div><img src="assets/Papa.webp" alt="Papa" width="1400" height="932" decoding="async"></div>
+            <div class="slide fit" data-name="Ladki Wale ki Taraf se"><div class="bg"></div><div class="sk"></div><img src="assets/Ladki%20Wale%20ki%20Taraf%20se.webp" alt="Ladki Wale ki Taraf se" width="1400" height="932" decoding="async"></div>
+            <div class="slide fit" data-name="Ladki Wale Phir se"><div class="bg"></div><div class="sk"></div><img src="assets/Ladki%20Wale%20Phir%20se.webp" alt="Ladki Wale Phir se" width="1400" height="932" decoding="async"></div>
+            <div class="slide fill" data-name="Mother"><div class="bg"></div><div class="sk"></div><img src="assets/Mother.webp" alt="Mother" width="1400" height="932" decoding="async"></div>
+          </div>
           <button class="arrow prev" type="button" aria-label="Previous photo"><svg viewBox="0 0 24 24"><polyline points="15,4 7,12 15,20"/></svg></button>
           <button class="arrow next" type="button" aria-label="Next photo"><svg viewBox="0 0 24 24"><polyline points="9,4 17,12 9,20"/></svg></button>
         </div>
@@ -437,8 +451,8 @@ body.go .hero-fl{animation:fadeIn 1.8s .6s both}
     <h2 class="script h2 rv">Hope to see you there!</h2>
     <div class="names2 rv">Shani &amp; Neha</div>
     <div class="photo">
-      <img class="pic" src="assets/neha%20shani.webp" alt="Shani and Neha" loading="lazy">
-      <img class="fl" src="assets/7f5bd2ba34e8ce.webp" alt="" aria-hidden="true" loading="lazy">
+      <img class="pic" src="assets/neha%20shani.webp" alt="Shani and Neha" width="1125" height="1500" decoding="async">
+      <img class="fl" src="assets/7f5bd2ba34e8ce.webp" alt="" aria-hidden="true" width="1100" height="1100">
     </div>
   </section>
 
@@ -488,6 +502,17 @@ function begin(){
   /* safety net: if the video never starts, never trap the guest */
   guard=setTimeout(function(){if(vid.currentTime<0.2)release()},9000);
 }
+/* try to start the music the moment the page opens; if the browser blocks it, the first tap/scroll/key anywhere starts it */
+(function(){
+  var userPaused=false;
+  function kick(e){if(e&&e.target&&e.target.closest&&e.target.closest('#audioBtn'))return;if(userPaused||!bgm.paused)return;var p=bgm.play();if(p&&p.then)p.then(function(){setIcons();['pointerdown','touchstart','keydown','click','wheel','scroll'].forEach(function(t){removeEventListener(t,kick,true)})}).catch(function(){})}
+  window.__musicKick=kick;
+  try{var p0=bgm.play();if(p0&&p0.catch)p0.catch(function(){})}catch(e){}
+  ['pointerdown','touchstart','keydown','click','wheel'].forEach(function(t){addEventListener(t,kick,{capture:true,passive:true})});
+  addEventListener('scroll',kick,{passive:true});
+  abtn.addEventListener('click',function(){userPaused=bgm.paused?false:true},true); /* runs before the toggle below */
+  bgm.addEventListener('pause',function(){ /* looped audio should never stop on its own */ if(!userPaused&&!document.hidden&&bgm.currentTime>0&&!bgm.ended&&released){setTimeout(kick,400)}});
+})();
 cover.addEventListener('touchstart',prime,{passive:true});
 cover.addEventListener('click',begin);
 cover.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();prime();begin()}});
@@ -689,49 +714,35 @@ if('IntersectionObserver' in window&&!reduce){
 
 /* ═════════ Family gallery ═════════ */
 (function(){
-  /* EDIT HERE: file = photo name in assets/ (no .webp) · fit 'fill' = fills frame, 'fit' = shows whole photo · pos = focus point */
-  var data=[
-    {f:'Aryan',fit:'fill'},
-    {f:'Musu',fit:'fill',pos:'left center'},
-    {f:'Sanjana',fit:'fill'},
-    {f:'Papa',fit:'fill'},
-    {f:'Ladki Wale ki Taraf se',fit:'fit'},
-    {f:'Ladki Wale Phir se',fit:'fit'},
-    {f:'Mother',fit:'fill'}
-  ];
-  var stage=$('#stage'),car=$('#car'),cap=$('#cap'),dots=$('#dots'),btn=$('#famBtn'),gal=$('#gallery'),n=data.length,cur=0,slides=[],opened=false,timer=null,userStopped=false,visible=false;
-  var cache={};
-  function src(i){return 'assets/'+encodeURIComponent(data[i].f)+'.webp'}
-  data.forEach(function(d,i){
-    var s=document.createElement('div');s.className='slide '+d.fit;s.setAttribute('role','group');s.setAttribute('aria-label',(i+1)+' of '+n+': '+d.f);
-    s.innerHTML='<div class="bg"></div><div class="sk"></div>';
-    var im=document.createElement('img');im.alt=d.f;im.decoding='async';im.draggable=false;if(d.pos)im.style.objectPosition=d.pos;
-    s.appendChild(im);stage.appendChild(s);slides.push(s);
-    var dt=document.createElement('i');dt.setAttribute('role','button');dt.setAttribute('aria-label','Photo '+(i+1));(function(k){dt.addEventListener('click',function(){stopAuto();show(k)})})(i);dots.appendChild(dt);
+  /* The photos are listed in the HTML (search  class="slide"  ) – order there = order here. */
+  var stage=$('#stage'),car=$('#car'),cap=$('#cap'),dots=$('#dots'),btn=$('#famBtn'),gal=$('#gallery');
+  var slides=$$('.slide',stage),n=slides.length,cur=0,opened=false,timer=null,userStopped=false,visible=false;
+  function markLoaded(i){
+    var s=slides[i],im=$('img',s);
+    function ok(){s.classList.add('ld');if(s.classList.contains('fit')){var u=im.currentSrc||im.src;$('.bg',s).style.backgroundImage='url("'+u+'")'}}
+    if(im.complete&&im.naturalWidth)ok();
+    else{
+      im.addEventListener('load',ok);
+      im.addEventListener('error',function(){ /* retry once, never leave an empty frame */
+        if(im.dataset.retry)return;im.dataset.retry='1';setTimeout(function(){im.src=im.src.split('?')[0]+'?r='+Date.now()},800);
+      });
+    }
+  }
+  slides.forEach(function(s,i){
+    s.setAttribute('role','group');s.setAttribute('aria-label',(i+1)+' of '+n+': '+s.dataset.name);
+    markLoaded(i);
+    var dt=document.createElement('i');dt.setAttribute('role','button');dt.setAttribute('aria-label','Photo '+(i+1));
+    dt.addEventListener('click',function(){stopAuto();show(i)});dots.appendChild(dt);
     s.addEventListener('click',function(){if(i!==cur){stopAuto();show(i)}});
   });
-  /* load a photo once, with fade-in; nearest photos first */
-  function load(i){
-    i=(i+n)%n;if(cache[i])return cache[i];
-    var s=slides[i],im=$('img',s),p=new Promise(function(res){
-      im.onload=function(){s.classList.add('ld');if(data[i].fit==='fit')$('.bg',s).style.backgroundImage='url("'+src(i)+'")';res()};
-      im.onerror=function(){s.classList.add('ld');res()};
-      im.src=src(i);
-    });
-    cache[i]=p;return p;
-  }
-  function preloadAll(){
-    var order=[0,1,n-1,2,n-2,3,4,5,6].filter(function(v,k,a){return v>=0&&v<n&&a.indexOf(v)===k});
-    var k=0;(function next(){if(k>=order.length)return;load(order[k++]).then(function(){setTimeout(next,60)})})();
-  }
+  function cw(){return Math.min(innerWidth*.7,360)}
   function layout(){
-    var w=car.getBoundingClientRect().width,cw=Math.min(innerWidth*.7,360);
+    var w=cw(),half=Math.floor(n/2);
     slides.forEach(function(s,i){
-      var d=((i-cur+n+Math.floor(n/2))%n)-Math.floor(n/2);   /* -3..3 : position relative to centre */
-      var ad=Math.abs(d),tx=0,rot=0,sc=.8,op=0,z=1,flt='none';
+      var d=((i-cur+n+half)%n)-half,ad=Math.abs(d),tx=0,rot=0,sc=.8,op=0,z=1,flt='none';
       if(d===0){sc=1;op=1;z=10}
-      else if(ad===1){tx=d*(cw*.62);rot=d*7;sc=.86;op=.9;z=6;flt='brightness(.96)'}
-      else if(ad===2){tx=d*(cw*.78);rot=d*11;sc=.74;op=.0;z=3}
+      else if(ad===1){tx=d*(w*.62);rot=d*7;sc=.86;op=.92;z=6;flt='brightness(.97)'}
+      else if(ad===2){tx=d*(w*.78);rot=d*11;sc=.74;op=0;z=3}
       s.style.transform='translate3d('+tx+'px,'+(ad===1?10:0)+'px,0) rotate('+rot+'deg) scale('+sc+')';
       s.style.opacity=op;s.style.zIndex=z;s.style.filter=flt;
       s.classList.toggle('vis',ad<=1);s.classList.toggle('c',d===0);
@@ -739,25 +750,21 @@ if('IntersectionObserver' in window&&!reduce){
     });
   }
   function spark(){
-    if(reduce)return;var r=car.getBoundingClientRect();
+    if(reduce)return;var r=car.getBoundingClientRect(),w=cw();
     for(var i=0;i<9;i++){
       var e=document.createElement('i');e.className='gal-spark';
-      e.style.left=(r.width/2+(Math.random()*2-1)*cw()/2)+'px';e.style.top=(40+Math.random()*cw()*1.1)+'px';
+      e.style.left=(r.width/2+(Math.random()*2-1)*w/2)+'px';e.style.top=(40+Math.random()*w*1.1)+'px';
       e.style.setProperty('--x',(Math.random()*60-30)+'px');e.style.setProperty('--y',(Math.random()*-70-10)+'px');
       var z=6+Math.random()*9;e.style.width=e.style.height=z+'px';car.appendChild(e);
       (function(el){setTimeout(function(){el.remove()},1150)})(e);
     }
   }
-  function cw(){return Math.min(innerWidth*.7,360)}
   function show(i,quiet){
-    cur=(i+n)%n;
-    layout();
+    cur=(i+n)%n;layout();
     $$('i',dots).forEach(function(d,k){d.classList.toggle('on',k===cur)});
     cap.classList.add('sw');
-    setTimeout(function(){cap.textContent=data[cur].f;cap.classList.remove('sw')},quiet?0:200);
-    /* priority: current + neighbours */
-    load(cur).then(function(){slides[cur].classList.remove('shine');void slides[cur].offsetWidth;if(!reduce)slides[cur].classList.add('shine')});
-    load(cur+1);load(cur-1);
+    setTimeout(function(){cap.textContent=slides[cur].dataset.name;cap.classList.remove('sw')},quiet?0:200);
+    var c=slides[cur];c.classList.remove('shine');void c.offsetWidth;if(!reduce)c.classList.add('shine');
     if(!quiet)spark();
   }
   function go(d){show(cur+d)}
@@ -765,9 +772,8 @@ if('IntersectionObserver' in window&&!reduce){
   function startAuto(){clearInterval(timer);if(reduce||userStopped)return;timer=setInterval(function(){if(visible&&!document.hidden)show(cur+1)},4800)}
   $('.prev').addEventListener('click',function(){stopAuto();go(-1)});
   $('.next').addEventListener('click',function(){stopAuto();go(1)});
-  /* swipe / drag */
-  var sx=null,sy=null,moved=false;
-  car.addEventListener('pointerdown',function(e){sx=e.clientX;sy=e.clientY;moved=false});
+  var sx=null,sy=null;
+  car.addEventListener('pointerdown',function(e){sx=e.clientX;sy=e.clientY});
   car.addEventListener('pointerup',function(e){
     if(sx===null)return;var dx=e.clientX-sx,dy=e.clientY-sy;sx=null;
     if(Math.abs(dx)>38&&Math.abs(dx)>Math.abs(dy)*1.2){stopAuto();go(dx<0?1:-1)}
@@ -775,29 +781,51 @@ if('IntersectionObserver' in window&&!reduce){
   car.addEventListener('pointercancel',function(){sx=null});
   car.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){stopAuto();go(1)}if(e.key==='ArrowLeft'){stopAuto();go(-1)}});
   addEventListener('resize',layout);
-  /* entrance: photos fan out of the middle */
   function fanIn(){
     if(reduce){layout();return}
     slides.forEach(function(s){s.style.transition='none';s.style.transform='translate3d(0,0,0) scale(.6) rotate(0deg)';s.style.opacity='0'});
-    void stage.offsetWidth;
-    slides.forEach(function(s){s.style.transition=''});
+    void stage.offsetWidth;slides.forEach(function(s){s.style.transition=''});
     setTimeout(layout,60);
   }
   show(0,true);
-  /* start fetching the photos quietly once the invitation is on screen, so they are ready before anyone taps */
-  function warm(){if(warm.done)return;warm.done=true;(window.requestIdleCallback||function(f){setTimeout(f,1200)})(preloadAll)}
-  var wio=('IntersectionObserver' in window)?new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){warm();wio.disconnect()}})},{rootMargin:'1200px 0px'}):null;
-  if(wio)wio.observe(btn);else setTimeout(warm,4000);
   if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting},{threshold:.35}).observe(car);else visible=true;
   btn.addEventListener('click',function(){
     var open=btn.getAttribute('aria-expanded')==='true';
     btn.setAttribute('aria-expanded',open?'false':'true');gal.classList.toggle('open',!open);
     if(!open){
-      warm();preloadAll();
+      /* if any photo is still missing, nudge it now */
+      slides.forEach(function(s){var im=$('img',s);if(!(im.complete&&im.naturalWidth)&&!im.dataset.retry){im.dataset.retry='1';im.src=im.src.split('?')[0]+'?r='+Date.now()}});
       if(!opened){opened=true;setTimeout(function(){fanIn();setTimeout(startAuto,3500)},450)}
       setTimeout(function(){gal.scrollIntoView({behavior:reduce?'auto':'smooth',block:'start'})},350);
     }
   });
+})();
+
+/* ═════════ Flower shower over Dress Code + Gift Preference ═════════ */
+(function(){
+  if(reduce)return;
+  var sec=$('#details'),last=0,inView=false,img=['5961256a45af79.webp','1dd766ceb4167d.png','23c733fcbffc46.png','4ffd7a196bd4c8.png','51cba1ab62aaf3.png','6bf540d0fbe48d.png','b513f82aaf9339.png'];
+  function rnd(a,b){return a+Math.random()*(b-a)}
+  function shower(){
+    var now=Date.now();if(now-last<9000)return;last=now;
+    var n=innerWidth<700?70:120;
+    for(var i=0;i<n;i++){
+      (function(i){
+        var w=document.createElement('div'),im=document.createElement('img'),pe=Math.random()<.32,sz=pe?rnd(22,46):rnd(16,34);
+        w.className='shower';w.style.left=rnd(-2,100)+'%';w.style.width=sz+'px';
+        w.style.setProperty('--dx',rnd(-120,120)+'px');w.style.setProperty('--rot',rnd(220,820)*(Math.random()<.5?-1:1)+'deg');
+        w.style.animationDuration=rnd(4.2,8.4)+'s';w.style.animationDelay=rnd(0,3.6)+'s';
+        im.src='assets/'+(pe?img[0]:img[1+((Math.random()*6)|0)]);im.alt='';im.decoding='async';
+        w.appendChild(im);document.body.appendChild(w);setTimeout(function(){w.remove()},13000);
+      })(i);
+    }
+  }
+  if('IntersectionObserver' in window){
+    new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting&&!inView){inView=true;shower()}
+      else if(!e.isIntersecting)inView=false;
+    })},{threshold:.28}).observe($('#details .paper'));
+  }
 })();
 
 })();
